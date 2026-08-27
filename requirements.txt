@@ -1,0 +1,18 @@
+# Core (required to run the demo with synthetic data)
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+
+# Live data (required only for --live mode)
+yfinance>=0.2.40
+pandas-datareader>=0.10
+
+# Reporting / portfolio construction (optional but recommended --
+# code degrades gracefully if these aren't installed, see src/report.py
+# and src/risk.py::hrp_weights)
+quantstats>=0.0.62
+Riskfolio-Lib>=6.0
+
+# Dev
+pytest>=8.0
