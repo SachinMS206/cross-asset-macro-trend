@@ -33,6 +33,7 @@ def main():
     parser.add_argument("--target-vol", type=float, default=0.10)
     parser.add_argument("--cost-bps", type=float, default=1.0)
     parser.add_argument("--weighting", default="inverse_vol", choices=["inverse_vol", "equal"])
+    parser.add_argument("--export-returns", default=None, help="Optional path to write the daily portfolio_returns series as CSV (used by the cross-repo portfolio-combination analysis)")
     args = parser.parse_args()
 
     if args.live:
@@ -88,6 +89,15 @@ def main():
         fold_returns = portfolio_returns.reindex(test_idx)
         sharpe = metrics.sharpe_ratio(fold_returns)
         print(f"  Fold {i+1}: {test_idx[0].date()} to {test_idx[-1].date()}  ->  Sharpe {sharpe:.2f}")
+
+    if args.export_returns:
+        Path(args.export_returns).parent.mkdir(parents=True, exist_ok=True)
+        export_df = pd.DataFrame({
+            "trend_portfolio_return": portfolio_returns,
+            "benchmark_return": benchmark_returns.reindex(portfolio_returns.index),
+        })
+        export_df.to_csv(args.export_returns)
+        print(f"\nExported daily portfolio + benchmark returns -> {args.export_returns}")
 
 
 if __name__ == "__main__":
