@@ -35,18 +35,20 @@ Refreshed automatically by
 via **Actions → "Refresh statistical validation" → Run workflow**.
 
 <!-- LIVE_RESULTS_START -->
-*Last refreshed automatically from live data: 2026-08-31 21:00 UTC. See `.github/workflows/refresh-significance.yml`.*
+*Last refreshed automatically from live data: 2026-08-31 21:05 UTC. See `.github/workflows/refresh-significance.yml`.*
 
 **Trials considered** (the five speeds in CRITIQUE.md's own sensitivity table, plus the multi-speed blend):
 
 | Variant     |   Sharpe |
 |:------------|---------:|
-| 4/16        |   -0.302 |
-| 8/32        |    0.102 |
+| 4/16        |   -0.301 |
+| 8/32        |    0.103 |
 | 16/64       |    0.348 |
 | 32/128      |    0.548 |
 | 64/256      |    0.845 |
 | multi-speed |    0.377 |
+
+**On this live run, multi-speed is NOT the best performer** -- **64/256** (Sharpe 0.845) outperforms it (Sharpe 0.377). The multi-speed blend was adopted to reduce fragility across nearby speed choices (CRITIQUE.md), not because it was expected to be the single best performer -- but on real data, a single speed currently beats it outright, which is worth stating plainly rather than only reporting the blend's own numbers.
 
 **Chosen strategy: multi-speed** (observed Sharpe 0.377, n=2847 days)
 
@@ -54,10 +56,12 @@ via **Actions → "Refresh statistical validation" → Run workflow**.
 |---|---|
 | Expected max Sharpe by chance alone (6 trials) | 0.509 |
 | PSR vs. zero (no selection-bias correction) | 100.0% |
-| **Deflated Sharpe Ratio** | **0.0%** |
-| **Probability of Backtest Overfitting (PBO)** | **0.0%** |
+| **Deflated Sharpe Ratio (for multi-speed)** | **0.0%** |
+| **Probability of Backtest Overfitting** | **0.0%** |
 
-**Reading this honestly:** once deflated for the number of trials, this Sharpe is NOT distinguishable from what chance alone would produce -- the honest reading is that speed selection here is not statistically validated. Separately, the PBO of 0.0% is low, consistent with the in-sample-best configuration generalizing out-of-sample.
+**Deflated Sharpe Ratio, read honestly:** once deflated for the number of trials, **multi-speed**'s Sharpe is NOT distinguishable from what chance alone would produce -- the honest reading is that choosing it over the alternatives is not statistically validated.
+
+**PBO, read honestly:** **PBO evaluates whichever variant wins each in-sample half** (most often **64/256** here, not necessarily multi-speed) and asks whether that in-sample winner still ranks above-median out-of-sample. A low PBO here means the in-sample-best variant does tend to generalize out-of-sample -- a separate question from whether the *chosen* multi-speed blend specifically is statistically justified (that's what DSR above addresses).
 <!-- LIVE_RESULTS_END -->
 
 ## Reading this honestly
