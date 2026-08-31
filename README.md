@@ -97,10 +97,20 @@ and commits the output straight back to this README. No number below was
 typed in by hand.
 
 <!-- LIVE_RESULTS_START -->
-*Not yet run — click **Actions → Refresh live backtest results → Run
-workflow** on GitHub to populate this section with real results, or run
-`python scripts/run_demo.py --live` locally and `python
-scripts/update_readme.py`.*
+*Last refreshed automatically from live FRED/Yahoo Finance data: 2026-08-31 17:50 UTC. See `.github/workflows/refresh-live-data.yml`.*
+
+|              | Strategy   | Benchmark   |
+|:-------------|:-----------|:------------|
+| Ann. Return  | 2.01%      | 2.66%       |
+| Ann. Vol     | 6.18%      | 5.40%       |
+| Sharpe       | 0.35       | 0.51        |
+| Sortino      | 0.47       | 0.76        |
+| Max Drawdown | -13.89%    | -21.62%     |
+| Calmar       | 0.14       | 0.12        |
+| Hit Rate     | 52.21%     | 51.58%      |
+| Tail Ratio   | 0.99       | 1.02        |
+
+![Performance](reports/performance.png)
 <!-- LIVE_RESULTS_END -->
 
 Walk-forward out-of-sample Sharpe by fold is checked in
