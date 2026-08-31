@@ -30,8 +30,23 @@ output straight back here — via the **Actions tab → "Refresh combined
 portfolio" → Run workflow** button or its schedule.
 
 <!-- LIVE_RESULTS_START -->
-*Not yet run — click **Actions → Refresh combined portfolio → Run
-workflow** on GitHub to populate this section with real results.*
+*Last refreshed automatically from live data: 2026-08-31 20:31 UTC. See `.github/workflows/combined-portfolio.yml`.*
+
+Overlapping live sample: 2025-07-29 to 2026-08-31 (285 trading days).
+
+**Correlation between the trend book's and RV book's daily returns: -0.289** -- not close to zero -- the diversification argument below is weaker than hoped, and should be read with that in mind.
+
+|              | Trend book   | RV book   | Benchmark (vol-targeted buy & hold)   | Trend + RV blend (equal risk)   |
+|:-------------|:-------------|:----------|:--------------------------------------|:--------------------------------|
+| Ann. Return  | -1.98%       | 10.65%    | 3.83%                                 | 8.93%                           |
+| Ann. Vol     | 5.13%        | 4.09%     | 6.00%                                 | 6.47%                           |
+| Sharpe       | -0.36        | 2.49      | 0.66                                  | 1.36                            |
+| Sortino      | -0.51        | 3.63      | 0.89                                  | 1.96                            |
+| Max Drawdown | -5.78%       | -2.57%    | -7.64%                                | -4.42%                          |
+| Calmar       | -0.34        | 4.15      | 0.50                                  | 2.02                            |
+| Hit Rate     | 52.28%       | 58.25%    | 54.39%                                | 54.67%                          |
+| Tail Ratio   | 1.00         | 1.15      | 0.94                                  | 0.97                            |
+
 <!-- LIVE_RESULTS_END -->
 
 ## Reading this honestly
