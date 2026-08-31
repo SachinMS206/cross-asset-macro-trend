@@ -47,7 +47,13 @@ def load_yfinance_series(ticker: str, start: str = "2015-01-01") -> pd.Series:
     import yfinance as yf
 
     df = yf.download(ticker, start=start, progress=False, auto_adjust=True)
-    s = df["Close"].rename(ticker)
+    close = df["Close"]
+    # newer yfinance versions return MultiIndex columns (one column per
+    # ticker) even for a single-ticker download, so "Close" comes back as a
+    # one-column DataFrame rather than a Series -- squeeze it before renaming.
+    if isinstance(close, pd.DataFrame):
+        close = close.iloc[:, 0]
+    s = close.rename(ticker)
     return s.ffill().dropna()
 
 
