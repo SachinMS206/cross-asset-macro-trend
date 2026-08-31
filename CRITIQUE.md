@@ -52,6 +52,45 @@ would average forecasts across several speeds (a "multi-speed" EWMAC, which
 `pysystemtrade` does) specifically to avoid this fragility, rather than
 committing to one speed.
 
+**Update, tested against live data and real statistics, not just prose:**
+the multi-speed blend described above was actually implemented
+(`signals.py::multi_speed_ewmac_signal`) and tested rigorously —
+[`STATISTICAL_VALIDATION.md`](STATISTICAL_VALIDATION.md) applies the
+Deflated Sharpe Ratio and Probability of Backtest Overfitting (Bailey &
+Lopez de Prado) to the same six configurations shown above, run on live
+FRED/Yahoo data. Two honest findings came out of it, and neither is the
+"multi-speed fixes it" story this section originally hoped for:
+
+```
+Live Sharpe, six trials:
+  4/16          -0.30
+  8/32           0.10
+  16/64          0.35
+  32/128         0.55
+  64/256         0.85   <- best live performer, by a wide margin
+  multi-speed    0.38   <- the "fix" adopted above
+```
+
+1. **The multi-speed blend is not the best performer on live data — the
+   single slowest speed (64/256) is, by more than double.** The blend was
+   adopted to reduce fragility across nearby choices, not because it was
+   expected to top the table, but that's still worth stating plainly
+   rather than only reporting the blend's own flattering number.
+2. **Deflated Sharpe Ratio for the chosen multi-speed strategy: 0.0%.**
+   Once correctly benchmarked against the expected best-of-six-trials
+   Sharpe under pure chance (not against zero), the multi-speed choice is
+   statistically indistinguishable from having picked well by luck. This
+   is the rigorous, quantitative version of the fragility this section
+   already suspected — it's no longer just prose.
+
+The honest conclusion: the multi-speed blend is a reasonable, principled
+idea, but on the live data actually tested, it is neither the best
+performer nor statistically validated as the right choice over the
+alternatives. See `STATISTICAL_VALIDATION.md` for the full methodology,
+including why PBO and DSR can legitimately tell different-sounding
+stories (they answer different questions) rather than treating that as a
+contradiction.
+
 ## 3. Transaction costs — breakeven around 8-9bps
 
 ```
