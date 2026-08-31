@@ -1,12 +1,4 @@
-"""
-report.py
-
-Generates the artifacts a reviewer actually looks at:
-  - a cumulative return / drawdown chart (PNG, via matplotlib, no extra deps)
-  - a metrics summary table (Markdown, embeddable straight into the README)
-  - optionally, a full quantstats HTML tearsheet if quantstats is installed
-    (pip install quantstats) -- this is the file worth linking from the CV.
-"""
+"""report.py -- generates the artifacts a reviewer actually looks at."""
 
 from __future__ import annotations
 
@@ -78,12 +70,6 @@ def try_quantstats_html(
     benchmark_returns: pd.Series | None = None,
     out_path: str = "reports/tearsheet.html",
 ) -> str | None:
-    """
-    If quantstats is installed, generate the full HTML tearsheet (the file
-    worth linking from a CV/GitHub README). Returns the output path, or None
-    if quantstats isn't available -- callers should fall back to
-    plot_performance() + metrics_markdown_table() in that case.
-    """
     try:
         import quantstats as qs
     except ImportError:
