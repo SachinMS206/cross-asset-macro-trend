@@ -13,6 +13,7 @@ pandas-datareader>=0.10
 # and src/risk.py::hrp_weights)
 quantstats>=0.0.62
 Riskfolio-Lib>=6.0
+pandas-ta>=0.3.14b
 
 # Dev
 pytest>=8.0
