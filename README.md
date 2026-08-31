@@ -123,18 +123,23 @@ relying on that conclusion in an interview.
 
 ```
 src/
-  data_loaders.py   # real FRED/Yahoo loaders + labeled synthetic generator
-  signals.py        # dual-MA and vol-normalized EWMAC signal construction
-  risk.py            # vol targeting, inverse-vol & risk-parity weighting
-  backtest.py        # backtest engine, cost model, walk-forward splits
-  metrics.py          # Sharpe, Sortino, drawdown, Calmar, tail ratio, etc.
-  report.py            # PNG tearsheet + markdown table + optional quantstats HTML
+  data_loaders.py       # real FRED/Yahoo loaders + labeled synthetic generator
+  signals.py            # dual-MA, vol-normalized EWMAC, and multi-speed blend
+  risk.py                # vol targeting, inverse-vol & risk-parity weighting
+  backtest.py             # backtest engine, cost model, walk-forward splits
+  metrics.py               # Sharpe, Sortino, drawdown, Calmar, tail ratio, etc.
+  report.py                 # PNG tearsheet + markdown table + optional quantstats HTML
+  stats_validation.py        # Deflated Sharpe Ratio + Probability of Backtest Overfitting
 scripts/
-  run_demo.py           # end-to-end pipeline runner
+  run_demo.py                 # end-to-end pipeline runner
+  combine_portfolios.py        # cross-repo portfolio-construction analysis (see PORTFOLIO_CONSTRUCTION.md)
+  validate_significance.py      # applies DSR/PBO to the EWMAC speed selection (see STATISTICAL_VALIDATION.md)
 tests/
-  test_signals.py, test_risk.py, test_backtest.py   # 17 unit tests
-WALKTHROUGH.md            # worked-example explanation of the core formulas
-CRITIQUE.md                # quantified sensitivity testing + honest weaknesses
+  41 unit tests across signals, risk, backtest, multi-speed, portfolio combination, and statistical validation
+WALKTHROUGH.md                    # worked-example explanation of the core formulas
+CRITIQUE.md                        # quantified sensitivity testing + honest weaknesses
+PORTFOLIO_CONSTRUCTION.md            # does blending with a mean-reversion book help? tested honestly
+STATISTICAL_VALIDATION.md             # is the multi-speed choice real, or selection bias? DSR + PBO, not just prose
 ```
 
 ## Setup
