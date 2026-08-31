@@ -35,8 +35,29 @@ Refreshed automatically by
 via **Actions → "Refresh statistical validation" → Run workflow**.
 
 <!-- LIVE_RESULTS_START -->
-*Not yet run — click **Actions → Refresh statistical validation → Run
-workflow** on GitHub to populate this section with real results.*
+*Last refreshed automatically from live data: 2026-08-31 21:00 UTC. See `.github/workflows/refresh-significance.yml`.*
+
+**Trials considered** (the five speeds in CRITIQUE.md's own sensitivity table, plus the multi-speed blend):
+
+| Variant     |   Sharpe |
+|:------------|---------:|
+| 4/16        |   -0.302 |
+| 8/32        |    0.102 |
+| 16/64       |    0.348 |
+| 32/128      |    0.548 |
+| 64/256      |    0.845 |
+| multi-speed |    0.377 |
+
+**Chosen strategy: multi-speed** (observed Sharpe 0.377, n=2847 days)
+
+| Metric | Value |
+|---|---|
+| Expected max Sharpe by chance alone (6 trials) | 0.509 |
+| PSR vs. zero (no selection-bias correction) | 100.0% |
+| **Deflated Sharpe Ratio** | **0.0%** |
+| **Probability of Backtest Overfitting (PBO)** | **0.0%** |
+
+**Reading this honestly:** once deflated for the number of trials, this Sharpe is NOT distinguishable from what chance alone would produce -- the honest reading is that speed selection here is not statistically validated. Separately, the PBO of 0.0% is low, consistent with the in-sample-best configuration generalizing out-of-sample.
 <!-- LIVE_RESULTS_END -->
 
 ## Reading this honestly
