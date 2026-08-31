@@ -1,9 +1,8 @@
 # Cross-Asset Systematic Macro Trend Strategy
 
 A vol-targeted, risk-weighted trend-following portfolio spanning US rate
-curves, FX and commodities/equities — built as an extension of my
-[2s10s Treasury curve momentum strategy](https://github.com/SachinMS206/2s10s-momentum-strategy)
-into a diversified, portfolio-level systematic macro book.
+curves, FX and commodities/equities, built as a diversified,
+portfolio-level systematic macro book.
 
 The core question this project is trying to answer honestly: **does a trend
 signal add anything once you account for costs, and does the answer hold up
@@ -132,14 +131,12 @@ src/
   stats_validation.py        # Deflated Sharpe Ratio + Probability of Backtest Overfitting
 scripts/
   run_demo.py                 # end-to-end pipeline runner
-  combine_portfolios.py        # cross-repo portfolio-construction analysis (see PORTFOLIO_CONSTRUCTION.md)
-  validate_significance.py      # applies DSR/PBO to the EWMAC speed selection (see STATISTICAL_VALIDATION.md)
+  validate_significance.py     # applies DSR/PBO to the EWMAC speed selection (see STATISTICAL_VALIDATION.md)
 tests/
-  41 unit tests across signals, risk, backtest, multi-speed, portfolio combination, and statistical validation
-WALKTHROUGH.md                    # worked-example explanation of the core formulas
-CRITIQUE.md                        # quantified sensitivity testing + honest weaknesses
-PORTFOLIO_CONSTRUCTION.md            # does blending with a mean-reversion book help? tested honestly
-STATISTICAL_VALIDATION.md             # is the multi-speed choice real, or selection bias? DSR + PBO, not just prose
+  39 unit tests across signals, risk, backtest, multi-speed, and statistical validation
+WALKTHROUGH.md                # worked-example explanation of the core formulas
+CRITIQUE.md                    # quantified sensitivity testing + honest weaknesses
+STATISTICAL_VALIDATION.md       # is the multi-speed choice real, or selection bias? DSR + PBO, not just prose
 ```
 
 ## Setup
