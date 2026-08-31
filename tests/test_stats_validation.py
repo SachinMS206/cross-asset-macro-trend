@@ -94,6 +94,19 @@ class TestPBOCSCV(unittest.TestCase):
         self.assertGreater(result["pbo"], 0.3)
         self.assertLess(result["pbo"], 0.7)
 
+    def test_reports_most_frequent_in_sample_winner(self):
+        rng = np.random.default_rng(2)
+        n = 1000
+        idx = pd.date_range("2015-01-01", periods=n, freq="B")
+        returns = pd.DataFrame({
+            "clear_winner": rng.normal(0.003, 0.01, n),
+            "noise_1": rng.normal(0, 0.01, n),
+            "noise_2": rng.normal(0, 0.01, n),
+        }, index=idx)
+        result = sv.pbo_cscv(returns, n_splits=10)
+        self.assertEqual(result["most_frequent_in_sample_winner"], "clear_winner")
+        self.assertEqual(sum(result["in_sample_winner_counts"].values()), result["n_combinations"])
+
     def test_rejects_nan_input(self):
         idx = pd.date_range("2015-01-01", periods=10, freq="B")
         returns = pd.DataFrame({"a": [0.01] * 9 + [np.nan], "b": [0.02] * 10}, index=idx)

@@ -170,6 +170,7 @@ def pbo_cscv(returns: pd.DataFrame, n_splits: int = 10) -> dict:
     block_indices = list(range(n_splits))
 
     logits = []
+    in_sample_winners = []
     for train_blocks in itertools.combinations(block_indices, n_splits // 2):
         train_blocks = set(train_blocks)
         test_blocks = set(block_indices) - train_blocks
@@ -181,6 +182,7 @@ def pbo_cscv(returns: pd.DataFrame, n_splits: int = 10) -> dict:
         test_sharpe = returns.loc[test_idx].mean() / returns.loc[test_idx].std()
 
         best_in_train = train_sharpe.idxmax()
+        in_sample_winners.append(best_in_train)
         # relative rank of the training-best strategy within the test-set
         # ranking, in (0, 1); 1.0 = best in test too, 0.0 = worst in test
         test_rank = test_sharpe.rank(pct=True)[best_in_train]
@@ -191,9 +193,12 @@ def pbo_cscv(returns: pd.DataFrame, n_splits: int = 10) -> dict:
 
     logits = np.array(logits)
     pbo = float((logits <= 0).mean())
+    winner_counts = pd.Series(in_sample_winners).value_counts()
 
     return {
         "n_combinations": len(logits),
         "pbo": pbo,
         "mean_logit": float(logits.mean()),
+        "most_frequent_in_sample_winner": winner_counts.index[0],
+        "in_sample_winner_counts": winner_counts.to_dict(),
     }
