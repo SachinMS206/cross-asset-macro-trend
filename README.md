@@ -96,17 +96,17 @@ and commits the output straight back to this README. No number below was
 typed in by hand.
 
 <!-- LIVE_RESULTS_START -->
-*Last refreshed automatically from live FRED/Yahoo Finance data: 2026-09-14 13:09 UTC. See `.github/workflows/refresh-live-data.yml`.*
+*Last refreshed automatically from live FRED/Yahoo Finance data: 2026-09-21 18:25 UTC. See `.github/workflows/refresh-live-data.yml`.*
 
 |              | Strategy   | Benchmark   |
 |:-------------|:-----------|:------------|
-| Ann. Return  | 1.95%      | 2.48%       |
-| Ann. Vol     | 6.18%      | 5.41%       |
-| Sharpe       | 0.34       | 0.48        |
-| Sortino      | 0.46       | 0.71        |
-| Max Drawdown | -13.89%    | -21.62%     |
+| Ann. Return  | 1.91%      | 2.39%       |
+| Ann. Vol     | 6.17%      | 5.40%       |
+| Sharpe       | 0.34       | 0.46        |
+| Sortino      | 0.45       | 0.69        |
+| Max Drawdown | -13.89%    | -21.55%     |
 | Calmar       | 0.14       | 0.11        |
-| Hit Rate     | 52.17%     | 51.51%      |
+| Hit Rate     | 52.15%     | 51.49%      |
 | Tail Ratio   | 0.98       | 1.02        |
 
 ![Performance](reports/performance.png)
