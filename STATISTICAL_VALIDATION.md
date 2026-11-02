@@ -35,26 +35,26 @@ Refreshed automatically by
 via **Actions → "Refresh statistical validation" → Run workflow**.
 
 <!-- LIVE_RESULTS_START -->
-*Last refreshed automatically from live data: 2026-10-26 20:12 UTC. See `.github/workflows/refresh-significance.yml`.*
+*Last refreshed automatically from live data: 2026-11-02 22:55 UTC. See `.github/workflows/refresh-significance.yml`.*
 
 **Trials considered** (the five speeds in CRITIQUE.md's own sensitivity table, plus the multi-speed blend):
 
 | Variant     |   Sharpe |
 |:------------|---------:|
-| 4/16        |   -0.291 |
-| 8/32        |    0.103 |
-| 16/64       |    0.339 |
-| 32/128      |    0.552 |
-| 64/256      |    0.835 |
-| multi-speed |    0.378 |
+| 4/16        |   -0.297 |
+| 8/32        |    0.099 |
+| 16/64       |    0.334 |
+| 32/128      |    0.547 |
+| 64/256      |    0.824 |
+| multi-speed |    0.372 |
 
-**On this live run, multi-speed is NOT the best performer** -- **64/256** (Sharpe 0.835) outperforms it (Sharpe 0.378). The multi-speed blend was adopted to reduce fragility across nearby speed choices (CRITIQUE.md), not because it was expected to be the single best performer -- but on real data, a single speed currently beats it outright, which is worth stating plainly rather than only reporting the blend's own numbers.
+**On this live run, multi-speed is NOT the best performer** -- **64/256** (Sharpe 0.824) outperforms it (Sharpe 0.372). The multi-speed blend was adopted to reduce fragility across nearby speed choices (CRITIQUE.md), not because it was expected to be the single best performer -- but on real data, a single speed currently beats it outright, which is worth stating plainly rather than only reporting the blend's own numbers.
 
-**Chosen strategy: multi-speed** (observed Sharpe 0.378, n=2887 days)
+**Chosen strategy: multi-speed** (observed Sharpe 0.372, n=2892 days)
 
 | Metric | Value |
 |---|---|
-| Expected max Sharpe by chance alone (6 trials) | 0.501 |
+| Expected max Sharpe by chance alone (6 trials) | 0.499 |
 | PSR vs. zero (no selection-bias correction) | 100.0% |
 | **Deflated Sharpe Ratio (for multi-speed)** | **0.0%** |
 | **Probability of Backtest Overfitting** | **0.0%** |
