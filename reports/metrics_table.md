@@ -1,10 +1,10 @@
 |              | Strategy   | Benchmark   |
 |:-------------|:-----------|:------------|
-| Ann. Return  | 1.80%      | 2.22%       |
+| Ann. Return  | 1.95%      | 2.02%       |
 | Ann. Vol     | 6.16%      | 5.40%       |
-| Sharpe       | 0.32       | 0.43        |
-| Sortino      | 0.43       | 0.65        |
+| Sharpe       | 0.34       | 0.40        |
+| Sortino      | 0.46       | 0.59        |
 | Max Drawdown | -13.89%    | -21.55%     |
-| Calmar       | 0.13       | 0.10        |
-| Hit Rate     | 52.11%     | 51.52%      |
+| Calmar       | 0.14       | 0.09        |
+| Hit Rate     | 52.22%     | 51.41%      |
 | Tail Ratio   | 0.98       | 1.02        |
